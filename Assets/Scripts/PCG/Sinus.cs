@@ -13,6 +13,14 @@ public class Sinus : MonoBehaviour {
 	private System.Random RandomNumber = new System.Random();
 
 	void Start() {
+		randomFreq ();
+	}
+		
+	void Update() {
+		HandleInput ();
+	}
+
+	void randomFreq() {
 		frequency = UnityEngine.Random.Range(300,800);
 	}
 
@@ -29,5 +37,11 @@ public class Sinus : MonoBehaviour {
 			if (channels == 2) data[i + 1] = data[i];
 			if (phase > 2 * Math.PI) phase = 0;
 		}
+	}
+
+	void HandleInput() {
+		if (Input.GetKey(KeyCode.R)) {
+			randomFreq ();
+		}	
 	}
 }
